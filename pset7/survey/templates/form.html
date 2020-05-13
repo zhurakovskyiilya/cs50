@@ -1,0 +1,126 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Form</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form action="/form" method="post" class="needs-validation" novalidate>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Hi, sign up </h1>
+        <p class="lead">All data will be saved, they can be viewed in the sheet window.</p>
+      </div>
+    </div>
+
+      <div class="form-row">
+          <div class="col-md-4 mb-3">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Name"  name="name" required>
+          <div class="valid-feedback">
+          Looks good!
+          </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="Last name">Last name</label>
+        <input type="text" class="form-control" id="Last name" placeholder="Last name"  name = "Last name" required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+
+
+        <div class="form-group">
+            <label for="gender">Gender:</label><br>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="gender" id="gender" value="female" required>
+              <label class="form-check-label" for="female">
+                Female
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="gender" id="gender" value="male" required>
+              <label class="form-check-label" for="male">
+                Male
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="gender" id="gender" value="other" required>
+              <label class="form-check-label" for="other">
+                Other
+              </label>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+              <label for="Username">Username</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend">@</span>
+                </div>
+                <input type="text" class="form-control" id="Username" placeholder="Username" name="Username" aria-describedby="inputGroupPrepend" required>
+                <div class="invalid-feedback">
+                  Please choose a username.
+                </div>
+              </div>
+           </div>
+
+           <div class="col-md-3 mb-3">
+            <label for="Zip">Zip</label>
+            <input type="text" class="form-control" id="Zip" placeholder="Zip" name="Zip" required>
+            <div class="invalid-feedback">
+              Please provide a valid zip.
+            </div>
+          </div>
+            <div class="col-md-4 mb-3">
+            <label for="kids">Kids:</label>
+            <select class="custom-select" id="kids" name="kids" required>
+            <option selected>Zero</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+
+
+        </div>
+
+
+      </div>
+
+          <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+        <script>
+        //Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function(){
+          'use strict';
+          window.addEventListener('load', function()
+               {
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function(form)
+                    {
+                      form.addEventListener('submit', function(event)
+                      {
+                        if (form.checkValidity() === false)
+                        {
+                          event.preventDefault();
+                          event.stopPropagation();
+                        }
+                    form.classList.add('was-validated');
+
+                      }, false);
+
+                    });
+
+                }, false);
+
+         })();
+
+        </script>
+
+
+
+
+{% endblock %}
