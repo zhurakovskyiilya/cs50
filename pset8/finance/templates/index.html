@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    index
+{% block main %}
+
+
+{% block main %}
+
+<table style="width:100%">
+      <tr>
+        <th>Stocks</th>
+        <th>Number of Shares</th>
+        <th>Current price of each Stock in $</th>
+        <th>Total Value in $</th>
+      </tr>
+        {% for stock_share in stocks_shares %}
+            <tr>
+                <td>
+                    {{ stock_share.symbol }}
+                </td>
+                <td>
+                    {{ stock_share.shares }}
+                </td>
+                <td>
+                    {{ '%0.2f'|format(stock_share.price) }}
+                </td>
+                <td>
+                    {{ '%0.2f'|format(stock_share.sums) }}
+                </td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+{% endblock %}
